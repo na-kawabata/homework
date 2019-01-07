@@ -13,4 +13,9 @@ public class Test : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public void Hoge()
+    {
+
+    }
 }
