@@ -19,14 +19,20 @@ public class SceneController : MonoBehaviour {
         }
         //読み込むシーンをアクティブに
         //GameObject newScene = Instantiate(scenes[id], GameObject.Find("GlobalCanvas").transform);
+        string pageName = null;
         switch (id)
         {
             case 1:
-                globalCanvas.transform.Find("Mypage").gameObject.SetActive(true);
+                pageName = "Mypage";
+                break;
+            case 2:
+                pageName = "cardList";
                 break;
             default:
                 break;
         }
+        globalCanvas.transform.Find(pageName).gameObject.SetActive(true);
+
 
     }
 
