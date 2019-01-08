@@ -4,28 +4,29 @@ using UnityEngine;
 
 public class CardDeckController : MonoBehaviour {
 
+    [SerializeField] GameObject popupPre;//POPUPprefab
     [SerializeField] GameObject deckCardPre;//deckCardPrefab
-
+    GameObject popup;
 
     //カード生成
     public void DeckCardList()
     {
         for (int i = 0; i < 10; i++)
         {
-            GameObject obj = Instantiate(cardPre, cardPanel.transform);
+            //GameObject obj = Instantiate(deckCardPre, cardPanel.transform);
         }
 
     }
 
-    //カードタップ時情報ポップアップ表示
-    public void TapCard()
+    //カードタップ時カード一覧ポップアップ表示
+    public void TapDeckCard()
     {
         if (popup)
         {
             Destroy(popup);
         }
-        //中央にカード詳細popupを表示
-        popup = Instantiate(popupPre, this.
-
+        //中央にカード一覧popupを表示
+        popup = Instantiate(popupPre, this.transform);
+    }
 
 }

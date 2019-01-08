@@ -31,6 +31,21 @@ public class SceneController : MonoBehaviour {
             case 2:
                 pageName = "CardList";
                 break;
+            case 3:
+                pageName = "CardDeck";
+                break;
+            case 4:
+                pageName = "Gachapage";
+                break;
+            case 5:
+                pageName = "StageList";
+                break;
+            case 10:
+                pageName = "Game";
+                break;
+            case 11:
+                pageName = "Result";
+                break;
             default:
                 break;
         }
