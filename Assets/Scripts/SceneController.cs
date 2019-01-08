@@ -22,11 +22,14 @@ public class SceneController : MonoBehaviour {
         string pageName = null;
         switch (id)
         {
+            case 0:
+                pageName = "Toppage";
+                break;
             case 1:
                 pageName = "Mypage";
                 break;
             case 2:
-                pageName = "cardList";
+                pageName = "CardList";
                 break;
             default:
                 break;

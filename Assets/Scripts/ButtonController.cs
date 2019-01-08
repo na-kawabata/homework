@@ -15,6 +15,7 @@ public class ButtonController : MonoBehaviour
 
     public void BackButton()
     {
+        sceneManager = GameObject.Find("SceneManager").GetComponent<SceneManager>();
         sceneManager.BackScene();
     }
 

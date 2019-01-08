@@ -6,7 +6,7 @@ public class SceneManager : MonoBehaviour
 {
 
     private static SceneManager mInstance;
-    private int sceneId = 0; //シーンID
+    private int sceneId = 0; //現在のシーンID
 
 
     //BackHistry 
@@ -53,16 +53,25 @@ public class SceneManager : MonoBehaviour
     //シーン遷移処理
     public void ChangeScene(int id)
     {
+        historyStack.Push(getSceneId());
+        setSceneId(id);
         sceneController.GetComponent<SceneController>().ChangeScene(id);
-
+       
     }
 
 
     //シーンバック
     public void BackScene()
     {
-        //historyから取得して削除
-        //Console.WriteLine(stack.Pop());
+       
+        if (historyStack.Peek() != null)
+        {
+            int backSceneId = historyStack.Pop();
+            setSceneId(backSceneId);
+            sceneController.GetComponent<SceneController>().ChangeScene(backSceneId);
+        }
+        else return;
+       
     }
 
 }
