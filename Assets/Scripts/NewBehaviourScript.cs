@@ -2,15 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour {
+public class CardData : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+	///カードの全データ
+
+    //カードそのもの
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

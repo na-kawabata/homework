@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//現在どのページを表示しているか
+//ページの履歴保持
+//ページを作るターゲットキャンバス指定
 public class SceneManager : MonoBehaviour
 {
 
@@ -11,9 +14,9 @@ public class SceneManager : MonoBehaviour
 
     //BackHistry 
     Stack<int> historyStack = new Stack<int>();
-
     //SceneController
-    public GameObject sceneController;
+    [SerializeField] SceneController sceneController;
+
 
     //インスタンスが存在しなければ作る
     public static SceneManager Instance
@@ -43,7 +46,7 @@ public class SceneManager : MonoBehaviour
         return this.sceneId;
     }
 
-
+   
 
 
 
@@ -68,7 +71,7 @@ public class SceneManager : MonoBehaviour
         {
             int backSceneId = historyStack.Pop();
             setSceneId(backSceneId);
-            sceneController.GetComponent<SceneController>().ChangeScene(backSceneId);
+            sceneController.ChangeScene(backSceneId);
         }
         else return;
        

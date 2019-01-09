@@ -5,20 +5,19 @@ using UnityEngine;
 public class SceneController : MonoBehaviour {
 
     public GameObject[] scenes;
-    GameObject globalCanvas;
+    [SerializeField] Canvas canvas; //仮で参照で持つ→SceneManagerで生成すれば参照もFindもなしでアクセスできる？
+    //private string[] sceneName = {"Toppage", "Mypage", "CardList", "Deck", "Gacha","Stage","Game","Result" };
 
     public void ChangeScene(int id)
     {
-        globalCanvas = GameObject.Find("GlobalCanvas");
-        //子要素をすべて非アクティブに
-        foreach (Transform transform in globalCanvas.transform)
+        //子要素をすべて削除
+        foreach (Transform transform in canvas.transform)
         {
-            // Transformからゲームオブジェクト取得・非表示
+            // Transformからゲームオブジェクト取得・削除
             var obj = transform.gameObject;
-            obj.SetActive(false);
+            Destroy(obj);
         }
-        //読み込むシーンをアクティブに
-        //GameObject newScene = Instantiate(scenes[id], GameObject.Find("GlobalCanvas").transform);
+        //読み込むシーンを生成
         string pageName = null;
         switch (id)
         {
@@ -32,13 +31,13 @@ public class SceneController : MonoBehaviour {
                 pageName = "CardList";
                 break;
             case 3:
-                pageName = "CardDeck";
+                pageName = "Deck";
                 break;
             case 4:
-                pageName = "Gachapage";
+                pageName = "Gacha";
                 break;
             case 5:
-                pageName = "StageList";
+                pageName = "Stage";
                 break;
             case 10:
                 pageName = "Game";
@@ -49,8 +48,11 @@ public class SceneController : MonoBehaviour {
             default:
                 break;
         }
-        globalCanvas.transform.Find(pageName).gameObject.SetActive(true);
 
+        // シーンプレハブを取得
+        GameObject scenePre = (GameObject)Resources.Load("Scenes/"+pageName);
+        // プレハブからインスタンスを生成
+        Instantiate(scenePre,canvas.transform);
 
     }
 
