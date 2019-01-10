@@ -10,40 +10,35 @@ public class CardListController : MonoBehaviour
     //カードリスト生成
     public void Start()
     {
+        //User所持カードJson
         string userCardsjson = Resources.Load<TextAsset>("Data/userCards").ToString();
         var cardlist = (CardMaster[])JsonHelper.FromJson<CardMaster>(userCardsjson);
 
-
-        //テスト　json取得
-        //カードマスタJsonファイル読み込み
+        //カードマスタJson
         string json = Resources.Load<TextAsset>("Data/card").ToString();
+        var masterList = (CardMaster[])JsonHelper.FromJson<CardMaster>(json);
 
-        Debug.Log(json);//ok
-
-       //var jsont = " {\"id\":\"1\",\"cardname\":\"aaa\",\"rarity\":\"2\"}";
+        //var jsont = " {\"id\":\"1\",\"cardname\":\"aaa\",\"rarity\":\"2\"}";
         //CardMaster list = JsonUtility.FromJson<CardMaster>(jsont);
         //CardMaster list1 = (CardMaster)JsonHelper.FromJson<CardMaster>(jsont);
         //Debug.Log("jsont:"+list1);
 
-        var list = (CardMaster[])JsonHelper.FromJson<CardMaster>(json);
-
-
-
-        //Debug.Log(list);
-        //取得テスト
-        for (int i = 0; i < list.Length; i++)
-        {
-            Debug.Log(list[i].id);
-        }
-
-
 
         //カード生成
+        //所持リストとマスターでidが一致するものをインスタンス化
         GameObject listCardPre = (GameObject)Resources.Load("listCard");
-        for (int i = 0; i<10; i++) 
+        for (int i = 0; i < cardlist.Length; i++)
         {
-            GameObject obj = Instantiate(listCardPre, cardPanel.transform);
+            for (int j = 0; j < masterList.Length; j++)
+            {
+                if (cardlist[i].id == masterList[j].id)
+                {
+                    GameObject obj = Instantiate(listCardPre, cardPanel.transform);
+                    obj.GetComponent<ListCard>().Create(masterList[j].id,masterList[j].cardname);
+                }
+            }
         }
+
 
     }
 
@@ -72,13 +67,3 @@ public class CardListController : MonoBehaviour
 
 
 }
-
-/*
-[System.Serializable]
-class CardMaster
-{
-    public int id;
-    public string cardname;
-    public string rarity;
-}
-*/

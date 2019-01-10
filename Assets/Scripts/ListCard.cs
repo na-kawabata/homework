@@ -1,11 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class ListCardController : MonoBehaviour {
+public class ListCard : MonoBehaviour
+{
+    [SerializeField] Text idText;
+    [SerializeField] Text cardnameText;
 
     //カードid保持
     GameObject popup;
+
+    //生成時の値設定
+    public void Create(int id,string cardname)
+    {
+        this.idText.text = id.ToString();
+        this.cardnameText.text = cardname;
+
+    }
+
+
 
     //カードタップ時情報ポップアップ表示
     public void TapCard()
