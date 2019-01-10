@@ -1,0 +1,17 @@
+{[
+{"id":"1","cardname":"aaa","rarity":"2"},
+{"id":"2","cardname":"aaa","rarity":"3"},
+{"id":"3","cardname":"aaa","rarity":"4"},
+{"id":"4","cardname":"bbb","rarity":"2"},
+{"id":"5","cardname":"bbb","rarity":"3"},
+{"id":"6","cardname":"bbb","rarity":"4"},
+{"id":"7","cardname":"ccc","rarity":"2"},
+{"id":"8","cardname":"ccc","rarity":"3"},
+{"id":"9","cardname":"ccc","rarity":"4"},
+{"id":"10","cardname":"ddd","rarity":"2"},
+{"id":"11","cardname":"ddd","rarity":"3"},
+{"id":"12","cardname":"ddd","rarity":"4"},
+{"id":"13","cardname":"eee","rarity":"2"},
+{"id":"14","cardname":"eee","rarity":"3"},
+{"id":"15","cardname":"eee","rarity":"4"}
+]}

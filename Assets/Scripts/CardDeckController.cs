@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CardDeckController : MonoBehaviour {
 
-    [SerializeField] GameObject popupPre;//POPUPprefab
     [SerializeField] GameObject deckCardPre;//deckCardPrefab
     GameObject popup;
 
@@ -26,7 +25,7 @@ public class CardDeckController : MonoBehaviour {
             Destroy(popup);
         }
         //中央にカード一覧popupを表示
-        popup = Instantiate(popupPre, this.transform);
-    }
+        //
 
+    }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SceneId : MonoBehaviour {
+public class UserData : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

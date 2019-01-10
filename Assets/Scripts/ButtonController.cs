@@ -4,20 +4,16 @@ using UnityEngine;
 
 public class ButtonController : MonoBehaviour
 {
-
-    SceneManager sceneManager;
-
     public void SceneChangeButton(int changeSceneId)
     {
-        sceneManager = GameObject.Find("SceneManager").GetComponent<SceneManager>();
-        sceneManager.ChangeScene(changeSceneId);
+        SceneManager.Instance.ChangeScene(changeSceneId);
     }
 
     public void BackButton()
     {
-        sceneManager = GameObject.Find("SceneManager").GetComponent<SceneManager>();
-        sceneManager.BackScene();
+        SceneManager.Instance.BackScene();
     }
 
-   
+
+
 }

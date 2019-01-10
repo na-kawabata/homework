@@ -4,7 +4,6 @@ using UnityEngine;
 
 //現在どのページを表示しているか
 //ページの履歴保持
-//ページを作るターゲットキャンバス指定
 public class SceneManager : MonoBehaviour
 {
 
@@ -15,7 +14,7 @@ public class SceneManager : MonoBehaviour
     //BackHistry 
     Stack<int> historyStack = new Stack<int>();
     //SceneController
-    [SerializeField] SceneController sceneController;
+    SceneController sceneController;
 
 
     //インスタンスが存在しなければ作る
@@ -58,7 +57,7 @@ public class SceneManager : MonoBehaviour
     {
         historyStack.Push(getSceneId());
         setSceneId(id);
-        sceneController.GetComponent<SceneController>().ChangeScene(id);
+        this.GetComponent<SceneController>().ChangeScene(id);
        
     }
 

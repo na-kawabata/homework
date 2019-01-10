@@ -160,7 +160,7 @@ GameObject:
   - component: {fileID: 222504121571823192}
   - component: {fileID: 114858320294899206}
   m_Layer: 5
-  m_Name: ScMypage
+  m_Name: Mypage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
