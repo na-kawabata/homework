@@ -10,8 +10,12 @@ public class CardListController : MonoBehaviour
     //カードリスト生成
     public void Start()
     {
+        string userCardsjson = Resources.Load<TextAsset>("Data/userCards").ToString();
+        var cardlist = (CardMaster[])JsonHelper.FromJson<CardMaster>(userCardsjson);
+
+
         //テスト　json取得
-        //Jsonファイル読み込み
+        //カードマスタJsonファイル読み込み
         string json = Resources.Load<TextAsset>("Data/card").ToString();
 
         Debug.Log(json);//ok
@@ -69,6 +73,7 @@ public class CardListController : MonoBehaviour
 
 }
 
+/*
 [System.Serializable]
 class CardMaster
 {
@@ -76,3 +81,4 @@ class CardMaster
     public string cardname;
     public string rarity;
 }
+*/
